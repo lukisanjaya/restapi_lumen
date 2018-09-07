@@ -12,7 +12,10 @@
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "phpunit/phpunit": "~5.0",
-        "mockery/mockery": "~0.9"
+        "mockery/mockery": "~0.9",
+        "dingo/api": "1.*",
+        "predis/predis" : "~1.0",
+        "illuminate/redis" : "5.4.*"
     },
     "autoload": {
         "psr-4": {

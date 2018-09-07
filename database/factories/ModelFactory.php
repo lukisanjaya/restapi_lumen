@@ -1,4 +1,5 @@
 <?php
+use Faker\Provider\Lorem;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,9 +12,23 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Model\Category::class, function (Faker\Generator $faker) {
+    $name = $faker->name;
     return [
         'name' => $faker->name,
-        'email' => $faker->email,
+        'slug' => str_slug($name),
+    ];
+});
+
+$factory->define(App\Model\Blog::class, function (Faker\Generator $faker) {
+    $title = $faker->name;
+    return [
+        'category_id' => rand(1, 50),
+        'title'       => $title,
+        'slug'        => str_slug($title),
+        'content'     => $faker->text,
+        'thumbnail'   => 'http://lorempixel.com/400/200/sports/3',
+        'created_at'  => date('Y-m-d H:i:s'),
+        'updated_at'  => date('Y-m-d H:i:s'),
     ];
 });
